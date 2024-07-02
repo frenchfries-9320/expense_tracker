@@ -46,7 +46,24 @@ class _NewExpenseState extends State<NewExpense> {
     final amountIsInvalid = enteredAmount == null || enteredAmount <= 0;
     if (_titleController.text.trim().isEmpty ||
         amountIsInvalid ||
-        _selectedDate == null) {}
+        _selectedDate == null) {
+      showDialog(
+        context: context,
+        builder: (ctx) => AlertDialog(
+          title: const Text('入力値がありません。'),
+          content: const Text('タイトル、値、データを確認してください。'),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.pop(ctx);
+              },
+              child: const Text('はい'),
+            )
+          ],
+        ),
+      );
+      return;
+    }
   }
 
   @override
