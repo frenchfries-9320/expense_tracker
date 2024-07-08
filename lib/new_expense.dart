@@ -121,7 +121,7 @@ class _NewExpenseState extends State<NewExpense> {
               )
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 16,
           ),
           Row(
